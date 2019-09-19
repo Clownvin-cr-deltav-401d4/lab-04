@@ -24,6 +24,7 @@ class Model {
     entry.id = uuid();
     //console.log(`Creating entry with id ${entry.id}`);
     let record = this.sanitize(entry);
+    console.log(entry, record);
     if (record.id) { this.database.push(record); }
     return Promise.resolve(record);
   }
@@ -42,26 +43,7 @@ class Model {
   }
 
   sanitize(entry) {
-
-    let valid = true;
-    let record = {};
-
     return validator.isValid(this.schema, entry) ? entry : undefined;
-
-    // Object.keys(this.schema).forEach(field => {
-    //   if (this.schema[field].required) {
-    //     if (entry[field]) {
-    //       record[field] = entry[field];
-    //     } else {
-    //       valid = false;
-    //     }
-    //   }
-    //   else {
-    //     record[field] = entry[field];
-    //   }
-    // });
-
-    // return valid ? record : undefined;
   }
 
 }
