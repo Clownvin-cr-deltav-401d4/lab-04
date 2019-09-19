@@ -10,8 +10,8 @@ class Model {
     this.schema = {
       fields: {
         id: { type: 'string', required: true },
-      }
-    }
+      },
+    };
   }
 
   get(id) {
