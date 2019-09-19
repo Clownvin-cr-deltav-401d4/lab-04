@@ -28,10 +28,8 @@ function testModel(Model, createTestObj) {
 
     it('can post() a new item', () => {
       let obj = createTestObj();
-      console.log(Object.values(obj));
       return model.create(obj)
         .then(record => {
-          console.log(obj, record);
           Object.keys(obj).forEach(key => {
             expect(record[key]).toEqual(obj[key]);
           });
