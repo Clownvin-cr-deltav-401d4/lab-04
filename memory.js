@@ -24,7 +24,6 @@ class Model {
     entry.id = uuid();
     //console.log(`Creating entry with id ${entry.id}`);
     let record = this.sanitize(entry);
-    console.log(entry, record);
     if (record.id) { this.database.push(record); }
     return Promise.resolve(record);
   }
